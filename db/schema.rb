@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109220856) do
+ActiveRecord::Schema.define(version: 20161109221431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "portfolios", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_portfolios_on_user_id", using: :btree
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.integer "portfolio_id"
+    t.integer "watch_list_id"
+    t.string  "address",       null: false
+    t.string  "city",          null: false
+    t.string  "state",         null: false
+    t.string  "zipcode",       null: false
+    t.string  "longitude",     null: false
+    t.string  "latitude",      null: false
+    t.string  "year_built",    null: false
+    t.string  "bathroom",      null: false
+    t.string  "bedroom",       null: false
+    t.string  "lot_size",      null: false
+    t.string  "sqft",          null: false
+    t.string  "house_type",    null: false
+    t.index ["portfolio_id"], name: "index_properties_on_portfolio_id", using: :btree
+    t.index ["watch_list_id"], name: "index_properties_on_watch_list_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,6 +54,11 @@ ActiveRecord::Schema.define(version: 20161109220856) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "watch_lists", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_watch_lists_on_user_id", using: :btree
   end
 
 end
