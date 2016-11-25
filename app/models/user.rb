@@ -2,11 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   attr_accessor :login
-
-  has_one :portfolio
-  has_one :watch_list
-  has_many :properties, through: :portfolio
-  has_many :properties, through: :watch_list
+  has_many :properties
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
 

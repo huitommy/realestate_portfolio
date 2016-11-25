@@ -1,7 +1,4 @@
 class Property < ApplicationRecord
-  belongs_to :property, optional: true
-  belongs_to :wish_list, optional: true
-
   validates :user_id, presence: true
   validates :address, presence: true
   validates :city, presence: true

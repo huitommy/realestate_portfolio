@@ -1,1 +1,22 @@
 <h1> Welcome to RE Portfolio</h1>
+
+<%= form_tag search_welcome_index_path, method: :get do %>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<h4><%= "Multiple matches found" if @properties.count > 1 %></h4>
+
+<ul>
+  <% @properties.each do |property| %>
+    <li> <%= property.address %> </li>
+    <ul>
+      <li>Type: <%= property.house_type %> </li>
+      <li>Year Built: <%= property.year_built %> </li>
+      <li>SqFt: <%= property.sqft %> </li>
+      <li># Bedrooms <%= property.bedroom %> </li>
+      <li># Bathrooms: <%= property.bathroom %> </li>
+      <li>Total Lot Size: <%= property.lot_size %> </li>
+    </ul>
+  <% end %>
+</ul>
