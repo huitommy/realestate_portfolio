@@ -9,7 +9,7 @@
 
 <ul>
   <% @properties.each do |property| %>
-    <li> <%= property.address %> </li>
+    <li> <%= property.formatted_address %> </li>
     <ul>
       <li>Type: <%= property.house_type %> </li>
       <li>Year Built: <%= property.year_built %> </li>
@@ -17,6 +17,8 @@
       <li># Bedrooms <%= property.bedroom %> </li>
       <li># Bathrooms: <%= property.bathroom %> </li>
       <li>Total Lot Size: <%= property.lot_size %> </li>
+      <li>Zestimate Price: <%= property.zestimate["amount"] %> </li>
+      <li>Zestimate Monthly Rent: <%= property.rent_data["amount"] %> </li>
     </ul>
   <% end %>
 </ul>
