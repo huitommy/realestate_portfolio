@@ -7,26 +7,26 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-user2 = User.create(
-  username:"user2",
-  email: "user2@user.com",
+user1 = User.create(
+  username:"user1",
+  email: "user1@user.com",
   password:"password"
 )
 
-1.upto(10) do |i|
+1.upto(7) do |i|
   Property.create(
-    user_id: user2.id,
-    address: "70 Somestreet Apt #{i}",
+    user_id: user1.id,
+    address: "#{rand(10..100)} Somestreet Apt #{i}",
     city: "Boston",
     state: "MA",
-    zipcode: "02111",
+    zipcode: "#{rand(00000..10000)}",
     longitude: "-40",
     latitude: "-39",
-    year_built: "1900",
+    year_built: "#{rand(1800..2016)}",
     bathroom: "3",
     bedroom: "3",
-    lot_size: "3900",
-    sqft: "2000",
+    lot_size: "#{rand(1000..6000)}",
+    sqft: "#{rand(400..5000)}",
     house_type: "condo",
     zpid: "#{900+i}",
     portfolio: [true, false].sample,

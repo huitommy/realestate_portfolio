@@ -16,7 +16,7 @@ let Property = React.createClass({
     let property = this.props.property;
     return(
       <div className="property col-lg-4">
-        <li>{property.address + " " + property.city + ", " + property.state}</li>
+        <li>{property.address + " " + property.city + ", " + property.state + " " + property.zipcode}</li>
           <ul>
             <li>Type: {property.house_type}</li>
             <li>Year Built: {property.year_built}</li>

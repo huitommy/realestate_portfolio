@@ -22,10 +22,11 @@ var DashboardApplication = React.createClass({
       <div className="container">
         <div className="header">
           <h1> Portfolio Dashboard</h1>
-          <p> Your real estate information</p>
+          <p> All your real estate portfolio information</p>
         </div>
-        <div className="search-field col-xs-12">
+        <div>
           <h1> Find a new property</h1>
+          <p> (Powered by Zillow) </p>
           <SearchForm />
         </div>
         <div className="portfolio col-xs-12">
