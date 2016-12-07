@@ -1,0 +1,24 @@
+@import "application";
+
+* {
+	margin: 0;
+}
+html, body {
+	height: 75%;
+}
+.page-wrap {
+  min-height: 75%;
+}
+
+.homepage-footer {
+  background: #1A1A1A;
+  border-style: solid;
+  border-color: #1A1A1A;
+  padding: 1rem;
+  font-size:  1.0rem;
+  text-align: center;
+  border: 0;
+  p {
+    color: #ffffff;
+  }
+}
