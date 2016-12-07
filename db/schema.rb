@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20161109223323) do
     t.string  "sqft",       null: false
     t.string  "house_type", null: false
     t.string  "zpid",       null: false
+    t.string  "zestimate",  null: false
+    t.string  "rent",       null: false
     t.boolean "portfolio"
     t.index ["user_id"], name: "index_properties_on_user_id", using: :btree
   end

@@ -15,6 +15,8 @@ class CreateProperty < ActiveRecord::Migration[5.0]
       t.string :sqft, null: false
       t.string :house_type, null: false
       t.string :zpid, null: false
+      t.string :zestimate, null: false
+      t.string :rent, null: false
       t.boolean :portfolio
     end
   end

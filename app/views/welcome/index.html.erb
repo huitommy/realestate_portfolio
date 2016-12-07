@@ -1,24 +1,39 @@
-<h1> Welcome to RE Portfolio</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RE Portfolio</title>
+    <%= csrf_meta_tags %>
 
-<%= form_tag search_welcome_index_path, method: :get do %>
-  <%= text_field_tag :query, params[:query] %>
-  <%= submit_tag "Search" %>
-<% end %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+  <body>
+    <div class="page-wrap">
+      <div class="homescreen">
+      <%= render 'layouts/navbar' %>
+      <%= render 'layouts/flash' %>
+          <%if current_user.nil? -%>
+          <div id="login-box">
 
-<h4><%= "Multiple matches found" if @properties.count > 1 %></h4>
+            <div class="labels">
+            <%= form_for(:user, :url => session_path(:user)) do |f| %>
+            <%= f.label :login %>
+            <%= f.text_field :login, autofocus: true, id:"username" %></br>
 
-<ul>
-  <% @properties.each do |property| %>
-    <li> <%= property.formatted_address %> </li>
-    <ul>
-      <li>Type: <%= property.house_type %> </li>
-      <li>Year Built: <%= property.year_built %> </li>
-      <li>SqFt: <%= property.sqft %> </li>
-      <li># Bedrooms <%= property.bedroom %> </li>
-      <li># Bathrooms: <%= property.bathroom %> </li>
-      <li>Total Lot Size: <%= property.lot_size %> </li>
-      <li>Zestimate Price: <%= property.zestimate["amount"] %> </li>
-      <li>Zestimate Monthly Rent: <%= property.rent_data["amount"] %> </li>
-    </ul>
-  <% end %>
-</ul>
+            <%= f.label :password %>
+            <%= f.password_field :password, id:"password" %></br>
+
+            <%= f.submit 'Sign In', class:"button" %></br>
+
+            <%= link_to "Forgot your password?", new_password_path(:user) %></br>
+
+            <%= link_to "Sign Up", new_user_registration_path %>
+            <% end %>
+          </div>
+          <%end %>
+        </div>
+      </div>
+    </div>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>
