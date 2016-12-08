@@ -12,25 +12,21 @@
       <div class="homescreen">
       <%= render 'layouts/navbar' %>
       <%= render 'layouts/flash' %>
-          <%if current_user.nil? -%>
-          <div id="login-box">
+      <div id="login-box">
+        <div class="labels">
+          <%= form_for(:user, :url => session_path(:user)) do |f| %>
+          <%= f.label :login %>
+          <%= f.text_field :login, autofocus: true, id:"username" %></br>
 
-            <div class="labels">
-            <%= form_for(:user, :url => session_path(:user)) do |f| %>
-            <%= f.label :login %>
-            <%= f.text_field :login, autofocus: true, id:"username" %></br>
+          <%= f.label :password %>
+          <%= f.password_field :password, id:"password" %></br>
 
-            <%= f.label :password %>
-            <%= f.password_field :password, id:"password" %></br>
+          <%= f.submit 'Sign In', class:"button" %></br>
 
-            <%= f.submit 'Sign In', class:"button" %></br>
+          <%= link_to "Forgot your password?", new_password_path(:user) %></br>
 
-            <%= link_to "Forgot your password?", new_password_path(:user) %></br>
-
-            <%= link_to "Sign Up", new_user_registration_path %>
-            <% end %>
-          </div>
-          <%end %>
+          <%= link_to "Sign Up", new_user_registration_path %>
+          <% end %>
         </div>
       </div>
     </div>

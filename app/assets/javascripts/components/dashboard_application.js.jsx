@@ -5,6 +5,11 @@ var DashboardApplication = React.createClass({
   componentDidMount: function(){
     this.getData();
   },
+  handleNewProperty: function(property){
+    let properties = this.state.properties;
+    properties.push(property);
+    this.setState({ properties: properties })
+  },
   getData: function(){
     let self = this;
     $.ajax({
@@ -27,7 +32,7 @@ var DashboardApplication = React.createClass({
         <div>
           <h1> Find a new property</h1>
           <p> (Powered by Zillow) </p>
-          <SearchForm />
+          <SearchForm handleNewProperty={ this.handleNewProperty}/>
         </div>
         <div className="portfolio col-xs-12">
           <h1> Portfolio</h1>

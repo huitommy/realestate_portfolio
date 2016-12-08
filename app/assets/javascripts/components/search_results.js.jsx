@@ -1,12 +1,14 @@
 let SearchResults = React.createClass({
+  handleNewProperty: function(property){
+    this.props.handleNewProperty(property);
+  },
   render: function(){
     let results = [];
     this.props.results.forEach(function(property){
       results.push(
-        <Property property={property} key={property.zpid} />
+        <Result property={property} key={property.zpid} handleNewProperty={this.handleNewProperty} />
       )
     }.bind(this));
-    debugger;
     if(results.length > 0){
       return(
         <div className="results">

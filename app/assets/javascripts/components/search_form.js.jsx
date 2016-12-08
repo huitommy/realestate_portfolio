@@ -1,4 +1,7 @@
 let SearchForm = React.createClass({
+  handleNewProperty: function(property){
+    this.props.handleNewProperty(property);
+  },
   getInitialState: function(){
     return { results: [] }
   },
@@ -21,10 +24,12 @@ let SearchForm = React.createClass({
     return(
       <div>
         <form onSubmit={this.search}>
-          <input type="text" className="form-control" placeholder="Enter address" ref="query" />
-          <input type="submit" value="Submit" />
+          <div className="form-group">
+            <input type="text" className="form-control" placeholder="Enter an address, city, and zip code" ref="query" />
+          </div>
+          <button type="submit" className="btn btn-primary">Submit</button>
         </form>
-        <SearchResults results={this.state.results} />
+        <SearchResults results={this.state.results} handleNewProperty={this.handleNewProperty} />
       </div>
     )
   }

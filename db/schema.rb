@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 20161109223323) do
     t.string  "city",       null: false
     t.string  "state",      null: false
     t.string  "zipcode",    null: false
-    t.string  "longitude",  null: false
-    t.string  "latitude",   null: false
     t.string  "year_built", null: false
     t.string  "bathroom",   null: false
     t.string  "bedroom",    null: false
@@ -30,8 +28,8 @@ ActiveRecord::Schema.define(version: 20161109223323) do
     t.string  "sqft",       null: false
     t.string  "house_type", null: false
     t.string  "zpid",       null: false
-    t.string  "zestimate",  null: false
-    t.string  "rent",       null: false
+    t.string  "zestimate"
+    t.string  "rent"
     t.boolean "portfolio"
     t.index ["user_id"], name: "index_properties_on_user_id", using: :btree
   end

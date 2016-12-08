@@ -20,8 +20,6 @@ user1 = User.create(
     city: "Boston",
     state: "MA",
     zipcode: "#{rand(00000..10000)}",
-    longitude: "-40",
-    latitude: "-39",
     year_built: "#{rand(1800..2016)}",
     bathroom: "3",
     bedroom: "3",

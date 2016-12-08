@@ -4,12 +4,11 @@ class Property < ApplicationRecord
   validates :city, presence: true
   validates :state, presence: true
   validates :zipcode, presence: true
-  validates :longitude, presence: true
-  validates :latitude, presence: true
   validates :year_built, presence: true
   validates :bathroom, presence: true
   validates :bedroom, presence: true
   validates :lot_size, presence: true
   validates :sqft, presence: true
   validates :house_type, presence: true
+  validates :zpid, presence: true
 end
