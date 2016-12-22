@@ -1,4 +1,6 @@
 class Property < ApplicationRecord
+  belongs_to :user
+
   validates :user_id, presence: true
   validates :address, presence: true
   validates :city, presence: true

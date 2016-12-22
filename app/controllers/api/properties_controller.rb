@@ -13,23 +13,8 @@ module Api
     end
 
     def create
-      @property = Property.new(
-        user_id: current_user.id,
-        address: property_params["address"],
-        city: property_params["city"],
-        state: property_params["state"],
-        zipcode: property_params["zipcode"],
-        year_built: property_params["year_built"],
-        bathroom: property_params["bathroom"],
-        bedroom: property_params["bedroom"],
-        lot_size: property_params["lot_size"],
-        sqft: property_params["sqft"],
-        house_type: property_params["house_type"],
-        zpid: property_params["zpid"],
-        zestimate: property_params["zestimate"],
-        rent: property_params["rent"],
-        portfolio: to_boolean(property_params["portfolio"])
-      )
+      @property = Property.new(property_params)
+      @property.user = current_user
       if @property.save
         render json: @property
       else
